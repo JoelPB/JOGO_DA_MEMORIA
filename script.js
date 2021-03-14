@@ -21,7 +21,7 @@ function flipCard() {
 
 function checkForMatch(){
     if (firstCard.dataset.card === secondCard.dataset.card){
-        disableCards();
+        desableCards();
         return;
     }
 
@@ -51,6 +51,13 @@ function resetBoard() {
     [firstCard, secondCard] = [null, null];
 }
 
+(function shuffle() {
+    cards.forEach((card) => {
+        let ramdomPosition = Math.floor(Math.random() * 12)
+        card.style.order = ramdomPosition;
+    })
+})();
+
 cards.forEach((card) => {
-    card.addEventListener('click', flipCard)
+    card.addEventListener('click', flipCard);
 })
